@@ -10,7 +10,7 @@ import { Auth } from '@angular/fire/auth';
 export class AuthComponent {
 
 
-  constructor(authService: Auth) {
+  constructor() {
 
   }
 }

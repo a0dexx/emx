@@ -11,7 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatSnackBar, matSnackBarAnimations, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { MatSnackBar, matSnackBarAnimations, MatSnackBarModule } from '@angular/
 
   providers: [MatSnackBar],
   imports: [
+    MatFormFieldModule,
     CommonModule,
     AuthRoutingModule,
     FormsModule,

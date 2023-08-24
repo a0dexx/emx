@@ -14,8 +14,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private snackBar: MatSnackBar
-
+    private snackBar: MatSnackBar,
   ) {}
 
   ngOnInit() {
@@ -26,32 +25,14 @@ export class SignupComponent implements OnInit {
         confirmPassword: ['', Validators.required],
       },
       { validator: passwordMatchValidator },
-    ); // Use the custom validator
+    );
   }
 
   signup() {
     if (this.signupForm.valid) {
-      console.log('form is valid');
       const { email, password } = this.signupForm.value;
-      this.authService.signup(email, password).then(res =>{
-        console.log('result of signup then', res)
-        // this.snackBar.open('Signup successful', 'Dismiss', {
-        //   duration: 5000,
-        // });
-      })
-      //   .catch(err =>{
-      //   console.log('result of signup err', err)
-      //     this.snackBar.open('Signup failed', 'Dismiss', {
-      //     duration: 5000,
-      //   });
-      // })
-      //
-
-    }else{
-      console.log('form is invalid');
+      this.authService.signup(email, password);
     }
-
-    console.log(this.signupForm.value);
   }
 }
 

@@ -1,41 +1,21 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
-  <mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon>
 
-  Loggedin: {{isLoggedIn$| async}}
-  loggedout: {{isLoggedOut$| async}}
-  <a mat-button routerLink="/auth">
+
+  <a mat-button routerLink="/auth" *ngIf="isLoggedOut$ | async">
     <span>signup/login</span>
   </a>
 
-
-<!--  <a mat-button routerLink="/"><mat-icon>favorite</mat-icon>-->
-
-
-<!--    <span>COURSES</span>-->
-<!--  </a>-->
 
   <a mat-button routerLink="/about">
     <span>ABOUT</span>
   </a>
 
-  <a mat-button routerLink="/characters">
+  <a mat-button routerLink="/characters"  *ngIf="isLoggedIn$ | async">
     <span>CHARACTERS</span>
   </a>
 
 
 
-
-  <a mat-list-item routerLink="login" *ngIf="isLoggedOut$ | async">
-    <mat-icon>person_add</mat-icon>
-    <span>Register</span>
-  </a>
-
-  <a mat-list-item routerLink="login" *ngIf="isLoggedOut$ | async">
-
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-
-    <span>Login</span>
-  </a>
 
   <a mat-list-item (click)="logout()" *ngIf="isLoggedIn$ | async">
     <mat-icon>exit_to_app</mat-icon>
