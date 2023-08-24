@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "contractors-4b71a": {
+      "hosting": {
+        "emx": [
+          "contractors-4b71a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "contractors-4b71a"
+  }
+}
