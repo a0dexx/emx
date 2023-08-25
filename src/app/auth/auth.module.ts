@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
@@ -14,10 +13,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-
 @NgModule({
   declarations: [AuthComponent, LoginComponent, SignupComponent],
-
   providers: [MatSnackBar],
   imports: [
     MatFormFieldModule,
@@ -30,7 +27,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatButtonModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
 })
 export class AuthModule {}

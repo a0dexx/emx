@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
   }
 }
 
-function passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
+export function passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {
   const password = control.get('password');
   const confirmPassword = control.get('confirmPassword');
 

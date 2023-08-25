@@ -21,7 +21,7 @@ export class CharactersListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource = new MatTableDataSource<Character>();
-  displayedColumns: string[] = ['id', 'name', 'species'];
+  displayedColumns: string[] = ['id', 'name', 'species','status'];
 
   characters: Character[] = [];
 
@@ -29,14 +29,12 @@ export class CharactersListComponent implements OnInit, AfterViewInit {
   loading$!: Observable<boolean>;
 
   ngOnInit() {
-
     this.getAllCharacters();
     this.characters$.subscribe((value: any) => {
       this.dataSource.data = value;
     });
     this.pageInfo$.subscribe((value: any) => {
       this.pageInfo = value.count as number;
-      console.log('what is value of page info', value)
     });
 
     this.loading$ = this.charactersService.loading$;
@@ -47,16 +45,10 @@ export class CharactersListComponent implements OnInit, AfterViewInit {
     this.pageInfo$ = this.charactersService.getInfo();
   }
 
-  onPageChange($event: PageEvent) {
-    console.log('what is event', $event);
-  }
-
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.paginator.page.subscribe((value: any) => {
-      console.log('what is value of page', value);
       this.charactersService.getCharacters(value.pageIndex + 1);
-
     });
   }
 }

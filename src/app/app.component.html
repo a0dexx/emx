@@ -1,28 +1,17 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
-
-
-  <a mat-button routerLink="/auth" *ngIf="isLoggedOut$ | async">
-    <span>signup/login</span>
-  </a>
-
-
-  <a mat-button routerLink="/about">
+  <a class="tab-gap" mat-button routerLink="/about">
     <span>ABOUT</span>
   </a>
-
-  <a mat-button routerLink="/characters"  *ngIf="isLoggedIn$ | async">
+  <a mat-button routerLink="/characters" *ngIf="isLoggedIn$ | async">
     <span>CHARACTERS</span>
   </a>
-
-
-
-
-  <a mat-list-item (click)="logout()" *ngIf="isLoggedIn$ | async">
+  <span class="filler"></span>
+  <a mat-button (click)="logout()" *ngIf="isLoggedIn$ | async">
     <mat-icon>exit_to_app</mat-icon>
-    <span>Logout</span>
+    <span>LOGOUT</span>
   </a>
-
+  <a mat-button routerLink="/auth" *ngIf="isLoggedOut$ | async">
+    <span>SIGNUP/LOGIN</span>
+  </a>
 </mat-toolbar>
-
-
 <router-outlet></router-outlet>

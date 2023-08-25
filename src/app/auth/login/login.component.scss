@@ -1,4 +1,3 @@
-/* Style the form container */
 .form-container {
   margin-top: 80px;
   padding: 20px;
@@ -8,35 +7,29 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Style form field labels */
 mat-label {
   font-weight: bold;
 }
 
-/* Style input fields */
 mat-form-field {
   width: 100%;
   margin-bottom: 20px;
 }
 
-/* Style submit button */
 button[type="submit"] {
   width: 100%;
 }
 
-/* Highlight the form field with errors */
 mat-form-field.ng-invalid {
   mat-label {
     color: #ff0000;
   }
 }
 
-/* Add a smooth transition for form field outlines */
 mat-form-field {
   transition: border-color 0.2s ease-in-out;
 }
 
-/* Adjust the outline color for focused form fields */
 mat-form-field.mat-focused {
   border-color: #007bff;
 }

@@ -20,15 +20,11 @@ export class CharacterDetailComponent implements OnInit {
   loading$!: Observable<boolean>;
 
   ngOnInit() {
-    // let characterId = this.route.snapshot.params['id']// as string;
-
-    // this.character$ = this.charactersService.getCharacterById(characterId );
     this.character$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-        return this.charactersService.getCharacterById(params.get('id')  as string);
+        return this.charactersService.getCharacterById(params.get('id') as string);
       }),
     );
-
 
     this.loading$ = this.charactersService.loading$;
 

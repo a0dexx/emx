@@ -14,7 +14,7 @@ describe('LoginComponent', () => {
 
   beforeEach(() => {
 
-    const authServiceSpy = jasmine.createSpyObj('AuthService', ['signup']);
+    const authServiceSpy = jasmine.createSpyObj('AuthService', ['login']);
     const snackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
 
     TestBed.configureTestingModule({
@@ -23,8 +23,10 @@ describe('LoginComponent', () => {
       providers: [
 
         FormBuilder,
-        { provide: AuthService, useValue: authServiceSpy },
+        // { provide: AuthService, useValue: authServiceSpy },
+        { provide: AuthService, useClass: MockAuthService  },
         { provide: MatSnackBar, useValue: snackBarSpy },
+
       ],
     });
     fixture = TestBed.createComponent(LoginComponent);
@@ -35,4 +37,36 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should initialize the form with empty fields', () => {
+    expect(component.loginForm.value).toEqual({ email: '', password: '' });
+  });
+
+  it('should be invalid when form fields are empty', () => {
+    component.loginForm.patchValue({ email: '', password: '' });
+    expect(component.loginForm.valid).toBeFalsy();
+  });
+
+  it('should be valid when form fields are filled', () => {
+    component.loginForm.patchValue({ email: 'test@example.com', password: 'password' });
+    expect(component.loginForm.valid).toBeTruthy();
+  });
+
+
+  it('should call login method when form is submitted with valid data', () => {
+    const authService = TestBed.inject(AuthService);
+    spyOn(authService, 'login');
+    component.loginForm.patchValue({ email: 'test@example.com', password: 'password' });
+    component.login();
+    expect(authService.login).toHaveBeenCalledWith('test@example.com', 'password');
+  });
+
+
+
 });
+class MockAuthService {
+  login(email: string, password: string): void {
+    // Mock implementation
+  }
+}

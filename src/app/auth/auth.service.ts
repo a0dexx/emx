@@ -17,7 +17,6 @@ export class AuthService {
   public isLoggedIn = false;
 
   login(email: string, password: string) {
-
     signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         console.log('user', userCredential);

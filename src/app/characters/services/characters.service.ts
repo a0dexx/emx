@@ -22,8 +22,6 @@ export class CharactersService {
     return this.http.get<CharacterResponse>(`${this.BASE_URL}/?page=${page}`);
   }
 
-
-
   getInfo(): Observable<PaginationInfo> {
     return this.getAllCharacterInfo().pipe(map((res: CharacterResponse) => res.info));
   }
@@ -33,7 +31,7 @@ export class CharactersService {
 
     this.getAllCharacterInfo(page)
       .pipe(
-        delay(320),
+        // delay(200),
         map((res) => res.results),
         tap(() => this.loadingSubject.next(false)),
       )
@@ -48,7 +46,7 @@ export class CharactersService {
   getCharacterById(id: string): Observable<Character> {
     this.loadingSubject.next(true);
     return this.http.get<Character>(`${this.BASE_URL}/${id}`).pipe(
-      delay(200),
+      // delay(200),
       finalize(() => this.loadingSubject.next(false)),
     );
   }
