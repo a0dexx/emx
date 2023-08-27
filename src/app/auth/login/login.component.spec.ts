@@ -21,12 +21,9 @@ describe('LoginComponent', () => {
       declarations: [LoginComponent],
       imports: [MatFormFieldModule, MatInputModule,ReactiveFormsModule,NoopAnimationsModule],
       providers: [
-
         FormBuilder,
-        // { provide: AuthService, useValue: authServiceSpy },
         { provide: AuthService, useClass: MockAuthService  },
         { provide: MatSnackBar, useValue: snackBarSpy },
-
       ],
     });
     fixture = TestBed.createComponent(LoginComponent);
@@ -37,7 +34,6 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 
   it('should initialize the form with empty fields', () => {
     expect(component.loginForm.value).toEqual({ email: '', password: '' });
@@ -53,7 +49,6 @@ describe('LoginComponent', () => {
     expect(component.loginForm.valid).toBeTruthy();
   });
 
-
   it('should call login method when form is submitted with valid data', () => {
     const authService = TestBed.inject(AuthService);
     spyOn(authService, 'login');
@@ -61,8 +56,6 @@ describe('LoginComponent', () => {
     component.login();
     expect(authService.login).toHaveBeenCalledWith('test@example.com', 'password');
   });
-
-
 
 });
 class MockAuthService {

@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [CharactersComponent, CharactersListComponent, CharacterDetailComponent], // schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -25,6 +26,7 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatListModule,
+    MatIconModule,
   ],
 })
 export class CharactersModule {}

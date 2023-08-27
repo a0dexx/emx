@@ -28,7 +28,9 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+<!--    <mat-row *matRowDef="let row; columns: displayedColumns;" class="hoverable"></mat-row>-->
+    <mat-row *matRowDef="let row;  columns: displayedColumns; let character" class="hoverable"  [routerLink]="['/characters/detail', character.id]"></mat-row>
+
 
   </table>
 

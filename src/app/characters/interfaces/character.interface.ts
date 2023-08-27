@@ -3,7 +3,6 @@ export interface Character{
   name: string;
   url: string;
   created: string;
-
   status: 'Dead' | 'Alive' | 'unknown';
   species: string;
   type: string;

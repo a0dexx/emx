@@ -3,32 +3,48 @@
 </div>
 
 <div class="container" *ngIf="character$|async as character">
-  <mat-card class="example-card">
+
+
+  <mat-card class="character-card">
     <mat-card-header>
-      <mat-card-title>{{character.name}}</mat-card-title>
-      <mat-card-subtitle>Species: {{character.species}}</mat-card-subtitle>
-
+      <mat-card-title>{{ character.name }}</mat-card-title>
+      <mat-card-subtitle>Character Details</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="{{character.image}}" alt="Photo of {{character.name}}">
+
     <mat-card-content>
+      <img class="character-img" mat-card-image [src]="character.image" alt="Character Image">
 
-      <mat-card-title>Location</mat-card-title>
-      <mat-card-subtitle>{{character.location.name}}</mat-card-subtitle>
-
-      <mat-card-title>Origin</mat-card-title>
-      <mat-card-subtitle>{{character.origin.name}}</mat-card-subtitle>
-
-      <mat-card-title>Status</mat-card-title>
-      <mat-card-subtitle>{{character.status}}</mat-card-subtitle>
-
-
-      <mat-card-title>Created</mat-card-title>
-      <mat-card-subtitle>{{character.created|date}}</mat-card-subtitle>
-
-      <mat-card-title>Episodes</mat-card-title>
-      <mat-card-subtitle>{{character.episode.length}}</mat-card-subtitle>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon>face</mat-icon>
+          <span class="property-label">Species:</span> {{ character.species }}
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon>gesture</mat-icon>
+          <span class="property-label">Gender:</span> {{ character.gender }}
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon>location_on</mat-icon>
+          <span class="property-label">Origin:</span> {{ character.origin.name }}
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon>location_city</mat-icon>
+          <span class="property-label">Location:</span> {{ character.location.name }}
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon>access_time</mat-icon>
+          <span class="property-label">Status:</span> {{ character.status }}
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon>calendar_today</mat-icon>
+          <span class="property-label">Created:</span> {{ character.created | date }}
+        </mat-list-item>
+      </mat-list>
     </mat-card-content>
   </mat-card>
-</div>
 
+
+
+
+</div>
 
