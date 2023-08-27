@@ -1,5 +1,7 @@
 # Emx
 
+The app is using the https://rickandmortyapi.com/ to retrive data.  And using firebase authentication for login/signup functionality. When you sign up, you will be able to access the 'characters tab'. This provides a paginated list of characters from the show. Clicking on a character will go to the 'details page'.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
 ## Development server
