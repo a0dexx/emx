@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchComponent } from './search.component';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +9,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
-
 
 @NgModule({
   declarations: [SearchComponent],

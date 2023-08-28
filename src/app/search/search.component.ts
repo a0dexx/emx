@@ -39,7 +39,6 @@ export class SearchComponent implements AfterViewInit, OnDestroy {
       )
       .subscribe((data) => {
         this.dataSource.data = data as Book[];
-        console.log( 'what is data', data)
         this.loading = false;
       });
   }
