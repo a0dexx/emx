@@ -36,10 +36,7 @@ export class CharactersListComponent implements OnInit, AfterViewInit {
     this.pageInfo$.subscribe((value: any) => {
       this.pageInfo = value.count as number;
     });
-
     this.loading$ = this.charactersService.loading$;
-
-    console.log('what is this.characters', this.characters)
   }
 
   getAllCharacters() {

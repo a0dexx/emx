@@ -4,11 +4,15 @@
     <mat-spinner></mat-spinner>
   </div>
 
+  <h1>Character Search</h1>
+  <h4 mat-subheader> Using the Rickandmorty API to query for characters of the show</h4>
+  <h4 mat-subheader>It displays a list of all the characters. There is pagination below. It is possible to sort by ID
+    and name </h4>
+
   <table mat-table matSort class="example-table mat-elevation-z8" [dataSource]="dataSource">
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
       <mat-cell *matCellDef="let character">{{ character.id }}  </mat-cell>
-
     </ng-container>
 
     <ng-container matColumnDef="name">
@@ -27,14 +31,12 @@
       <mat-cell *matCellDef="let character">{{ character.status }}</mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-<!--    <mat-row *matRowDef="let row; columns: displayedColumns;" class="hoverable"></mat-row>-->
-    <mat-row *matRowDef="let row;  columns: displayedColumns; let character" class="hoverable"  [routerLink]="['/characters/detail', character.id]"></mat-row>
-
-
+    <mat-header-row class="example-header" *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row;  columns: displayedColumns; let character" class="hoverable"
+             [routerLink]="['/characters/detail', character.id]"></mat-row>
   </table>
 
-  <mat-paginator class="example-table mat-elevation-z8" [length]="pageInfo" [pageSize]="20">
+  <mat-paginator class="example-header mat-elevation-z8" [length]="pageInfo" [pageSize]="20">
   </mat-paginator>
 
 </div>

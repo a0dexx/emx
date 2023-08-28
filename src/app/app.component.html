@@ -1,11 +1,15 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
-  <a class="tab-gap" mat-button routerLink="/about">
+  <button mat-button routerLink="/about">
     <span>ABOUT</span>
-  </a>
+  </button>
 
-  <a mat-button routerLink="/characters" *ngIf="isLoggedIn$ | async">
+  <button mat-button routerLink="/search">
+    <span>SEARCH</span>
+  </button>
+
+  <button  mat-button routerLink="/characters" *ngIf="isLoggedIn$ | async">
     <span>CHARACTERS</span>
-  </a>
+  </button>
 
   <span class="filler"></span>
   <ng-container *ngIf="(userName$ | async) as userName">
@@ -16,10 +20,10 @@
     <img class="user-avatar tab-gap" [ngSrc]="pictureUrl" alt="avatar" priority width=35 height=35>
   </ng-container>
 
-  <a mat-button (click)="logout()" *ngIf="isLoggedIn$ | async">
+  <button mat-button (click)="logout()" *ngIf="isLoggedIn$ | async">
     <mat-icon>exit_to_app</mat-icon>
     <span>LOGOUT</span>
-  </a>
+  </button>
   <a mat-button routerLink="/auth" *ngIf="isLoggedOut$ | async">
     <span>SIGNUP/LOGIN</span>
   </a>

@@ -19,6 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./characters/characters.module').then((m) => m.CharactersModule),
   },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule) },
+  { path: 'search', loadChildren: () => import('./search/search.module').then(m => m.SearchModule) },
   {
     path: '**',
     redirectTo: '/',
