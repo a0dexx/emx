@@ -1,0 +1,35 @@
+{
+  "docs": [
+    {
+      "title": "Harry Potter 1",
+      "author_name": ["Margaret Potts"],
+      "first_publish_year":"2006",
+      "ratings_average": 4.5879087
+    },
+    {
+      "title": "Harry Potter 2",
+      "author_name": ["Dick Redfern"],
+      "first_publish_year": "2007",
+      "ratings_average": 4.897875
+    },
+    {
+      "title": "Harry Potter 3",
+      "author_name": ["Andrew Fowler"],
+      "first_publish_year": "2022",
+      "ratings_average": 3.2987987
+    },
+    {
+      "title": "Harry Potter 4",
+      "author_name": ["Chreswell Harris Potts"],
+      "first_publish_year": "1977",
+      "ratings_average": 1.18787
+    },
+    {
+      "title": "Harry Potter 5",
+      "author_name": ["Cyrus A. Potts"],
+      "first_publish_year": "1977",
+      "ratings_average": 2.878782
+    }
+  ]
+}
+
