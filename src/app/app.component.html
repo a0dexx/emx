@@ -2,10 +2,20 @@
   <a class="tab-gap" mat-button routerLink="/about">
     <span>ABOUT</span>
   </a>
+
   <a mat-button routerLink="/characters" *ngIf="isLoggedIn$ | async">
     <span>CHARACTERS</span>
   </a>
+
   <span class="filler"></span>
+  <ng-container *ngIf="(userName$ | async) as userName">
+    <span class="user-name tab-gap">Welcome {{userName}}</span>
+  </ng-container>
+
+  <ng-container *ngIf="(pictureUrl$ | async) as pictureUrl">
+    <img class="user-avatar tab-gap" [ngSrc]="pictureUrl" alt="avatar" priority width=35 height=35>
+  </ng-container>
+
   <a mat-button (click)="logout()" *ngIf="isLoggedIn$ | async">
     <mat-icon>exit_to_app</mat-icon>
     <span>LOGOUT</span>

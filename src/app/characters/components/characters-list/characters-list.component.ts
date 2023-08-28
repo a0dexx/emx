@@ -38,6 +38,8 @@ export class CharactersListComponent implements OnInit, AfterViewInit {
     });
 
     this.loading$ = this.charactersService.loading$;
+
+    console.log('what is this.characters', this.characters)
   }
 
   getAllCharacters() {

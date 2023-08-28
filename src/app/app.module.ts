@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, AboutComponent],
@@ -30,6 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
     MatIconModule,
     MatListModule,
+    NgOptimizedImage,
   ],
   providers: [],
   bootstrap: [AppComponent],

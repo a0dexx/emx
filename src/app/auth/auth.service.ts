@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, user } from '@angular/fire/auth';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  user,
+  GoogleAuthProvider,
+} from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -15,31 +22,35 @@ export class AuthService {
   ) {}
 
   public isLoggedIn = false;
+  public user: any;
 
   login(email: string, password: string) {
     signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
-        console.log('user', userCredential);
-        this.router.navigateByUrl('/characters');
+        this.redirectAfterLogin();
       })
       .catch((error) => {
-        console.log('error', error);
-        this.snackBar.open(`Signup failed: ${error.message} `, 'Dismiss', {
-          duration: 5000,
-        });
+        this.presentSnackBar(error);
       });
   }
 
   signup(email: string, password: string) {
     createUserWithEmailAndPassword(this.auth, email, password)
       .then(() => {
-        this.router.navigateByUrl('/characters');
+        this.redirectAfterLogin();
       })
       .catch((error) => {
-        console.log('error', error);
-        this.snackBar.open(`Signup failed: ${error.message} `, 'Dismiss', {
-          duration: 5000,
-        });
+        this.presentSnackBar(error);
+      });
+  }
+
+  googleLogin() {
+    signInWithPopup(this.auth, new GoogleAuthProvider())
+      .then((result) => {
+        this.redirectAfterLogin();
+      })
+      .catch((error) => {
+        this.presentSnackBar(error);
       });
   }
 
@@ -56,9 +67,28 @@ export class AuthService {
     );
   }
 
+  presentSnackBar(error: any) {
+    this.snackBar.open(`Signup failed: ${error.message} `, 'Dismiss', {
+      duration: 5000,
+    });
+  }
+
+  /*
+   The reason for the setTimeout...
+   When you log in the first time, the redirect works fine. If you logout and log back in, the redirect doesn't work.
+   So adding the setTimeout fixes the issue. I don't believe this is the best solution.
+   There is probably a better way to do this as this feels like a hack. And will investigate further when there is time.
+   */
+  redirectAfterLogin() {
+    setTimeout(() => {
+      this.router.navigate(['/characters'], { replaceUrl: false });
+    }, 0);
+  }
+
   logout() {
-    this.isLoggedIn = false;
-    this.auth.signOut();
-    this.router.navigateByUrl('/auth');
+    this.auth.signOut().then(() => {
+      this.isLoggedIn = false;
+      this.router.navigateByUrl('/auth', { replaceUrl: true });
+    });
   }
 }
