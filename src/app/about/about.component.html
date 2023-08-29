@@ -1,7 +1,44 @@
 <div class="container">
   <h1>Welcome!</h1>
 
-  <p>This is a test application for Angular Developer role with EMX </p>
+  <p>Angular app for EMX interview.</p>
+
+  <p>Below is a quick summary of what we are trying to demonstrate with this app.</p>
+
+  <p>Basic authentication function via the 'signup/login page'. Uses typical email/password authentication in addition to Google login. This is
+    achieved with the Firebase library.</p>
+
+  <p>The Characters section utilizes the Rick and Morty API (<a href="https://rickandmortyapi.com/">https://rickandmortyapi.com/</a>).
+    The Characters page queries a full list of characters and presents them in a table (Material table is used). 20 rows
+    are displayed initially, and it is possible to paginate through the data. Also, it is possible to filter the data in
+    the ID and Name columns.</p>
+
+  <p>When you click on a character, it takes you to the ‘Character Detail’ page to display more details about the
+    character.</p>
+
+  <p>Both the character list and character details sit behind an AuthGuard. So, these pages are only accessible after
+    being authenticated.</p>
+
+  <p>The search section queries the Openlibrary API. You enter a search term in the input field; after a delay, a backed
+    request is made to the API, and the data is displayed in a table. This page does not require authentication to view.
+    There is no pagination or filtering due to time constraints.</p>
+
+  <p>Unit tests have been provided for a lot of the functionality. If time were not an issue, tests could be more
+    extensive.</p>
+
+  <p>There are some very basic Cypress E2E tests as well. Again, as there was not much time and a lot to do, these could
+    have been more comprehensive. I just wanted to show the basic setup and some typical test cases.</p>
+
+  <p>The search component doesn't have any tests. Again, due to time constraints. I did this as a ‘bonus module’ when I
+    had extra time during the weekend.</p>
+
+  <p>Please note, the application is far from perfect and in a real-world production environment, there would be more
+    testing and perhaps some better practices in place. It is viewed as a quick mock-up to demonstrate Angular knowledge
+    and ability with limited time.</p>
+
+  <p>Also, the UX/UI is not great. Just basic. The Google Login functionality was done later hence it looks a bit
+    ‘bolted on’ I just wanted to show that it works. </p>
+
 
   <img class="course-logo" class="course-image mat-elevation-z10"
        src="https://marketech-apac.com/wp-content/uploads/2023/02/essencemediacom-launch.jpg">
